@@ -1,0 +1,15 @@
+{
+  "name": "basevite",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite  --host",
+    "build": "date +%Y%m%d.%H%M>src/version.json;vite build  --emptyOutDir;mkdir dist/BaseVite/i18n;cp -R src/i18n/*.json dist/BaseVite/i18n/",
+    "preview": "vite preview --host",
+    "deploy": "rm -r  ../gbruneau.github.io/baseVite/;cp -R dist/baseVite/ ../gbruneau.github.io/"
+  },
+  "devDependencies": {
+    "vite": "^7.2.2",
+    "vite-plugin-static-copy": "^3.1.4"
+  },
+  "dependencies": {}
+}

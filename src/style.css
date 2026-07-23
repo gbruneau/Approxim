@@ -1,0 +1,11 @@
+body {
+  font-family: sans-serif;
+}
+
+.langOption {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: bisque;
+  border: 1px solid red;
+} 
