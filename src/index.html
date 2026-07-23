@@ -5,20 +5,25 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-t9n="maintitle">Vite Application</title>
+  <title data-t9n="maintitle">Approxim</title>
 </head>
 
 <body>
-  <div ><span data-t9n="version"></span>:<span id="appVersion"></span></div>
-  <!--
-   <div id="langSelector" data-t9n-t="langsel"></div>
- -->
+  <header>
+    <h1>Approxim</h1>
+    <p>approximate a constant to the nearest fraction</p>
+  </header>
+  <main>
+    <section id="appInput">
+     <label for="inputConstant"> input constant to approximate:</label><input type="text" id="inputConstant" value="1" />
+      <label for="inputIterations"> iterations to perform:</label><input type="text" id="inputIterations" value="10"  min="1" />
+      <button id="btnApproximate">Approximate</button><h1></h1>
+    </section>
+    <section id="appOutput">
 
-  <select id="langSelector" data-t9n-t="langsel"></select>
+    </section>
+  </main>
 
-
-  <img src="https://picsum.photos/800/450?random=1" data-t9n-t="belimg">
-  </div>
   <script type="module" src="./main.js"></script>
 </body>
 

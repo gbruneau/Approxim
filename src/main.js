@@ -1,15 +1,40 @@
 import './style.css';
-import AppVersion from './version.json';
-import { setupI18n } from  './i18n.js';
 
 
-document.querySelector('#appVersion').textContent = `${AppVersion}`;
+//  init appInput with pi
+document.querySelector('#inputConstant').value = Math.PI
 
+//on input, iterate for best estimation
+document.querySelector('#btnApproximate').addEventListener('click', () => {
+    const constant = parseFloat(document.querySelector('#inputConstant').value);
+    const iterations = parseInt(document.querySelector('#inputIterations').value);
 
-// Templates for language selector
-var langOptionHTML=`<option class="langOption" value="%code"  data-lang="%code">%name</option>`;
-//var langOptionHTML=`<div class="langOption" data-lang="%code">%name</div>`;
-//var langOptionHTML=`<input type="radio" id="langOpt%code" name="langOpt" value="%code"><label for="langOpt%code">%name</label></br>`
+    // Perform approximation logic here
+    let bestEstimate = {
+        "a:": 1,
+        "b:": 1,
+        "estimate": 1,
+        "delta": Math.abs(constant - 1)
+    };
+    // clear app output
+    document.querySelector('#appOutput').innerHTML = '';
+    for (let a = 1; a <= iterations; a++) {
+        for (let b = 1; b <= iterations; b++) {
+            const estimate = a / b;
+            const delta = Math.abs(constant - estimate);
+            if (delta < bestEstimate.delta) {
+                bestEstimate = { a, b, estimate, delta };
+                document.querySelector('#appOutput').innerHTML += `
+        <p>Best Estimate: ${bestEstimate.estimate}</p>
+        <p>a: ${bestEstimate.a}</p>
+        <p>b: ${bestEstimate.b}</p>
+        <p>Delta: ${bestEstimate.delta}</p>
+        <hr>
+    `;
+            }
+        }
 
-setupI18n('langSelector',langOptionHTML);
+    };
+
+});
 

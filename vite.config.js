@@ -10,7 +10,7 @@ export default defineConfig({
 
     ],
     build: {
-        outDir: "../dist/BaseVite",
+        outDir: "../dist/Approxim",
         manifest: true
     }
 });
